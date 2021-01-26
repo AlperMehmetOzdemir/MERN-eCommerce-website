@@ -29,7 +29,7 @@ const LoginScreen = ({ location, history }) => {
         })
       );
     }
-  }, [history, userInfo, redirect, updateUserProfile]);
+  }, [history, userInfo, redirect, dispatch]);
 
   const submitHandler = (e) => {
     e.preventDefault();
