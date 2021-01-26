@@ -9,7 +9,8 @@ import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 // route imports
 import productRoutes from "./routes/productRoutes.js";
-import userRoutes from "./routes/userRoutes.js"
+import userRoutes from "./routes/userRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 
 // SETUP & MIDDLEWARE
 dotenv.config();
@@ -18,7 +19,7 @@ connectDb();
 
 const app = express();
 
-app.use(express.json())
+app.use(express.json());
 
 // api test
 app.get("/", (req, res) => {
@@ -29,8 +30,9 @@ app.get("/", (req, res) => {
 // product routes
 app.use("/api/products", productRoutes);
 //user routes
-app.use("/api/users", userRoutes)
-
+app.use("/api/users", userRoutes);
+//order routes
+app.use("/api/orders", orderRoutes);
 
 // CUSTOM MIDDLEWARE
 // error middleware
