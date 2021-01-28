@@ -76,7 +76,6 @@ const ProductScreen = ({ history,match }) => {
                     <Col>Status:</Col>
                     <Col>
                       <strong>
-                        {console.log(product.name, product.countInStock)}
                         {product.countInStock > 0 ? "In Stock" : "Out Of Stock"}
                       </strong>
                     </Col>

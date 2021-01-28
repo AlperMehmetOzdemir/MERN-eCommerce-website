@@ -33,6 +33,8 @@ app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 //order routes
 app.use("/api/orders", orderRoutes);
+// stripe
+// app.get("/api/config/stripe", (req,res) => res.send(process.env.STRIPE_TEST_KEY))
 
 // CUSTOM MIDDLEWARE
 // error middleware
