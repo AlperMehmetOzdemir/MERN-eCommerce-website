@@ -1,4 +1,5 @@
 // IMPORTS
+import path from "path";
 import express from "express";
 import dotenv from "dotenv";
 import colors from "colors";
@@ -11,6 +12,7 @@ import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
+import uploadRoutes from "./routes/uploadRoutes.js";
 
 // SETUP & MIDDLEWARE
 dotenv.config();
@@ -27,14 +29,15 @@ app.get("/", (req, res) => {
 });
 
 // ROUTES
-// product routes
 app.use("/api/products", productRoutes);
-//user routes
 app.use("/api/users", userRoutes);
-//order routes
 app.use("/api/orders", orderRoutes);
+app.use("/api/upload", uploadRoutes);
 // stripe
 // app.get("/api/config/stripe", (req,res) => res.send(process.env.STRIPE_TEST_KEY))
+
+const __dirname = path.resolve();
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 // CUSTOM MIDDLEWARE
 // error middleware
